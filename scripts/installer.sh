@@ -41,3 +41,7 @@ tier_three(){
 	sudo nvidia-xconfig --cool-bits=4
 	sudo nvidia-xconfig --enable-all-gpus
 }
+
+tier_one
+tier_two
+tier_three
