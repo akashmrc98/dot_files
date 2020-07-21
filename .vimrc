@@ -24,25 +24,14 @@ set background=dark
 
 "General Key Mappings 
 map <Space> <Leader>
-noremap j h
-noremap k j
-noremap i k
-noremap l l
-noremap a i
-noremap s a
-noremap q b
-noremap w e
-noremap e w
-noremap c y
-noremap r R
-noremap ! 0
-noremap @ ^
+
+noremap ! ^
 noremap # $
-noremap K o
-noremap I O
+noremap @ %
+noremap $ #
+noremap % @
+noremap ^ !
 noremap U <C-r>
-noremap o s
-noremap O S
 
 noremap <Leader>fs :w<CR>
 noremap <Leader>fq :q!<CR>
@@ -141,3 +130,9 @@ let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)]"]"]"
 set termguicolors
 colorscheme dracula
+
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#44475a ctermbg=234 
