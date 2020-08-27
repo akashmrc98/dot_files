@@ -1,0 +1,39 @@
+#!/bin/bash
+
+temp(){
+    ocli | grep "Temperature" | egrep -Eo "[0-9]{2}.[0-9]{2}"
+    read -p "akash"
+}
+
+fan_0(){
+    ocli | grep "Fan 0:" -A 1 | egrep -Eo "[0-9]{3} | [0-9]{4}"
+    read -p "akash"
+}
+
+fan_1(){
+    ocli | grep "Fan 1:" -A 1 | egrep -Eo "[0-9]{3} | [0-9]{4}"
+    read -p "akash"
+}
+
+pump(){
+    su
+    read -p "akash"
+    ocli | grep "Pump:" -A 1 | egrep -Eo "[0-9]{3} | [0-9]{4}"
+}
+
+
+if [ $1 == "fan0" ]
+	then
+		fan0
+elif [ $1 == "fan1" ]
+	then
+		fan1
+elif [ $1 == "pump" ]
+	then
+		pump
+elif [ $1 == "temp" ]
+	then 
+		temp
+else 
+		echo "Invalid option"
+fi
